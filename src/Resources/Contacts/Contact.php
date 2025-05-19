@@ -85,10 +85,13 @@ final class Contact implements ContactContract
     /**
      * {@inheritDoc}
      */
-    public function list(string $locationId): string|array
+    public function list(string $locationId, int $limit = 100, string $startAfterId = null, int $startAfter = null): string|array
     {
         $payload = Payload::get('contacts/', [
             'locationId' => $locationId,
+            'limit'=>$limit,
+            'startAfterId'=>$startAfterId,
+            'startAfter'=>$startAfter
         ]);
 
         return $this->transporter
