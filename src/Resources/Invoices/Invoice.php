@@ -32,7 +32,7 @@ final class Invoice implements InvoiceContract
      */
     public function get(string $invoiceId, array $params = []): array|string
     {
-        $payload = Payload::put("invoices/{$invoiceId}/", $params);
+        $payload = Payload::get("invoices/{$invoiceId}/", $params);
 
         return $this->transporter->requestObject($payload)->data();
     }
